@@ -2,6 +2,17 @@
 
 static bool flip;
 
+float vertices[24] =
+					{ -1.0f, -1.0f, 1.0f ,
+						1.0f, -1.0f, 1.0f,
+						1.0f, 1.0f, 1.0f,
+						-1.0f, 1.0f, 1.0f,
+
+						-1.0f, -1.0f, -1.0f,
+						1.0f, -1.0f, -1.0f,
+						1.0f, 1.0f, -1.0f,
+						-1.0f, 1.0f, -1.0f };
+
 Game::Game() : window(VideoMode(800, 600), "OpenGL Cube VBO")
 {
 }
@@ -48,34 +59,71 @@ GLuint index;
 void Game::initialize()
 {
 	isRunning = true;
+	glTranslatef(0.0f, 0.0f, -8.0f);
+	//glMatrixMode(GL_PROJECTION);
+	//glLoadIdentity();
+	//gluPerspective(45.0, window.getSize().x / window.getSize().y, 1.0, 500.0);
+	//glMatrixMode(GL_MODELVIEW);
 
 	glewInit();
 
 	/* Vertices counter-clockwise winding */
 
-	vertex[0].coordinate[0] = -0.5f;
-	vertex[0].coordinate[1] = -0.5f;
-	vertex[0].coordinate[2] = 0.0f;
+	vertex[0].coordinate[0] = vertices[0];
+	vertex[0].coordinate[1] = vertices[1];
+	vertex[0].coordinate[2] = vertices[2];
 
-	vertex[1].coordinate[0] = -0.5f;
-	vertex[1].coordinate[1] = 0.5f;
-	vertex[1].coordinate[2] = 0.0f;
+	vertex[1].coordinate[0] = vertices[2];
+	vertex[1].coordinate[1] = vertices[3];
+	vertex[1].coordinate[2] = vertices[0];
 
-	vertex[2].coordinate[0] = 0.5f;
-	vertex[2].coordinate[1] = 0.5f;
-	vertex[2].coordinate[2] = 0.0f;
+	vertex[2].coordinate[0] = vertices[2];
+	vertex[2].coordinate[1] = vertices[6];
+	vertex[2].coordinate[2] = vertices[3];
 
-	//vertex[3].coordinate[0] = 0.5f; 
-	//vertex[3].coordinate[1] = 0.5f;  
-	//vertex[3].coordinate[2] = 0.0f;
 
-	//vertex[4].coordinate[0] = 0.5f; 
-	//vertex[4].coordinate[1] = -0.5f;  
-	//vertex[4].coordinate[2] = 0.0f;
 
-	//vertex[5].coordinate[0] = -0.5f; 
-	//vertex[5].coordinate[1] = -0.5f;  
-	//vertex[5].coordinate[2] = 0.0f;
+	/*vertex[3].coordinate[0] = vertices[6];
+	vertex[3].coordinate[1] = vertices[7];
+	vertex[3].coordinate[2] = vertices[3];
+
+	vertex[4].coordinate[0] = vertices[7];
+	vertex[4].coordinate[1] = vertices[6];
+	vertex[4].coordinate[2] = vertices[5];
+
+	vertex[5].coordinate[0] = vertices[5];
+	vertex[5].coordinate[1] = vertices[4];
+	vertex[5].coordinate[2] = vertices[7];
+
+
+
+	vertex[6].coordinate[0] = vertices[5];
+	vertex[6].coordinate[1] = vertices[0];
+	vertex[6].coordinate[2] = vertices[4];
+
+	vertex[7].coordinate[0] = vertices[5];
+	vertex[7].coordinate[1] = vertices[1];
+	vertex[7].coordinate[2] = vertices[0];
+
+	vertex[8].coordinate[0] = vertices[1];
+	vertex[8].coordinate[1] = vertices[5];
+	vertex[8].coordinate[2] = vertices[6];
+
+
+
+	vertex[9].coordinate[0] = vertices[6];
+	vertex[9].coordinate[1] = vertices[2];
+	vertex[9].coordinate[2] = vertices[1];
+
+	vertex[10].coordinate[0] = vertices[4];
+	vertex[10].coordinate[1] = vertices[0];
+	vertex[10].coordinate[2] = vertices[3];
+
+	vertex[11].coordinate[0] = vertices[3];
+	vertex[11].coordinate[1] = vertices[7];
+	vertex[11].coordinate[2] = vertices[4];*/
+
+
 
 	vertex[0].color[0] = 0.1f;
 	vertex[0].color[1] = 1.0f;
@@ -103,7 +151,9 @@ void Game::initialize()
 
 
 	triangles[0] = 0;   triangles[1] = 1;   triangles[2] = 2;
-	triangles[3] = 3;   triangles[4] = 4;   triangles[5] = 5;
+	/*triangles[3] = 3;   triangles[4] = 4;   triangles[5] = 5;
+	triangles[6] = 6;   triangles[7] = 7;   triangles[8] = 8;
+	triangles[9] = 9;   triangles[10] = 10;   triangles[11] = 11;*/
 
 	/* Create a new VBO using VBO id */
 	glGenBuffers(1, vbo);
@@ -162,6 +212,7 @@ void Game::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	//glTranslatef(-8.0f, 0.0f, 0.0f);
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index);
