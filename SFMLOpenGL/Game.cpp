@@ -114,41 +114,38 @@ void Game::initialize()
 	vertex[7].coordinate[2] = vertices[23];
 
 
-	vertex[0].color[0] = 0.1f;
-	vertex[0].color[1] = 1.0f;
-	vertex[0].color[2] = 0.0f;
+	vertex[0].color[0] = 0.3f;
+	vertex[0].color[1] = 0.3f;
+	vertex[0].color[2] = 0.3f;
 
-	vertex[1].color[0] = 0.2f;
-	vertex[1].color[1] = 1.0f;
-	vertex[1].color[2] = 0.0f;
+	vertex[1].color[0] = 0.4f;
+	vertex[1].color[1] = 0.4f;
+	vertex[1].color[2] = 0.4f;
 
-	vertex[2].color[0] = 0.3f;
-	vertex[2].color[1] = 1.0f;
-	vertex[2].color[2] = 0.0f;
+	vertex[2].color[0] = 0.5f;
+	vertex[2].color[1] = 0.5f;
+	vertex[2].color[2] = 0.5f;
 
-	vertex[3].color[0] = 0.4f;
-	vertex[3].color[1] = 1.0f;
-	vertex[3].color[2] = 0.0f;
+	vertex[3].color[0] = 0.6f;
+	vertex[3].color[1] = 0.6f;
+	vertex[3].color[2] = 0.6f;
 
-	vertex[4].color[0] = 0.5f;
-	vertex[4].color[1] = 1.0f;
-	vertex[4].color[2] = 0.0f;
+	vertex[4].color[0] = 0.7f;
+	vertex[4].color[1] = 0.7f;
+	vertex[4].color[2] = 0.7f;
 
-	vertex[5].color[0] = 0.6f;
-	vertex[5].color[1] = 1.0f;
-	vertex[5].color[2] = 0.0f;
+	vertex[5].color[0] = 0.8f;
+	vertex[5].color[1] = 0.8f;
+	vertex[5].color[2] = 0.8f;
 
-	vertex[6].color[0] = 0.8f;
-	vertex[6].color[1] = 0.498039f;
-	vertex[6].color[2] = 0.196078f;
+	vertex[6].color[0] = 0.9f;
+	vertex[6].color[1] = 0.9f;
+	vertex[6].color[2] = 0.9f;
 
 	vertex[7].color[0] = 1.0f;
 	vertex[7].color[1] = 1.0f;
 	vertex[7].color[2] = 1.0f;
 
-	vertex[8].color[0] = 1.0f;
-	vertex[8].color[1] = 0.5f;
-	vertex[8].color[2] = 0.0f;
 
 	triangles[0] = 0;   triangles[1] = 1;   triangles[2] = 2;
 	triangles[3] = 2;   triangles[4] = 3;   triangles[5] = 0;
@@ -209,7 +206,7 @@ void Game::render()
 	glEnableClientState(GL_COLOR_ARRAY);
 
 
-	glColorPointer(3, GL_FLOAT, sizeof(Vertex), (char*)NULL + 0);
+	glColorPointer(3, GL_FLOAT, sizeof(Vertex), (char*)NULL + 12);
 
 	/*	Draw Triangle from VBO	(set where to start from as VBO can contain 
 		model compoents that are and are not to be drawn )	*/
