@@ -55,7 +55,7 @@ public:
 	static Matrix3 RotationY(double _angle);
 	static Matrix3 RotationZ(double _angle);
 
-	static Matrix3 Scale3D(int dx);
+	static Matrix3 Scale3D(double dx);
 
 	std::string toString();
 };

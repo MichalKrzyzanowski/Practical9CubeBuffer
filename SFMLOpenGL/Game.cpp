@@ -138,6 +138,17 @@ void Game::initialize()
 	vertex[5].color[1] = 1.0f;
 	vertex[5].color[2] = 0.0f;
 
+	vertex[6].color[0] = 0.8f;
+	vertex[6].color[1] = 0.498039f;
+	vertex[6].color[2] = 0.196078f;
+
+	vertex[7].color[0] = 1.0f;
+	vertex[7].color[1] = 1.0f;
+	vertex[7].color[2] = 1.0f;
+
+	vertex[8].color[0] = 1.0f;
+	vertex[8].color[1] = 0.5f;
+	vertex[8].color[2] = 0.0f;
 
 	triangles[0] = 0;   triangles[1] = 1;   triangles[2] = 2;
 	triangles[3] = 2;   triangles[4] = 3;   triangles[5] = 0;
@@ -275,7 +286,7 @@ void Game::controlCube()
 		{
 			float temp = m_points[i].Z;
 			m_points[i].Z = 1;
-			m_points[i] = Matrix3::Translate(0, 0.1f) * m_points[i];
+			m_points[i] = Matrix3::Translate(0, 0.001f) * m_points[i];
 
 			m_points[i].Z = temp;
 		}
@@ -287,7 +298,7 @@ void Game::controlCube()
 		{
 			float temp = m_points[i].Z;
 			m_points[i].Z = 1;
-			m_points[i] = Matrix3::Translate(0, -0.1f) * m_points[i];
+			m_points[i] = Matrix3::Translate(0, -0.001f) * m_points[i];
 
 			m_points[i].Z = temp;
 		}
@@ -299,7 +310,7 @@ void Game::controlCube()
 		{
 			float temp = m_points[i].Z;
 			m_points[i].Z = 1;
-			m_points[i] = Matrix3::Translate(-0.1f, 0) * m_points[i];
+			m_points[i] = Matrix3::Translate(-0.001f, 0) * m_points[i];
 
 			m_points[i].Z = temp;
 		}
@@ -311,7 +322,7 @@ void Game::controlCube()
 		{
 			float temp = m_points[i].Z;
 			m_points[i].Z = 1;
-			m_points[i] = Matrix3::Translate(0.1f, 0) * m_points[i];
+			m_points[i] = Matrix3::Translate(0.001f, 0) * m_points[i];
 
 			m_points[i].Z = temp;
 		}
@@ -322,7 +333,7 @@ void Game::controlCube()
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			m_points[i] = Matrix3::Scale3D(101.0) * m_points[i];
+			m_points[i] = Matrix3::Scale3D(100.05) * m_points[i];
 		}
 	}
 
@@ -330,7 +341,7 @@ void Game::controlCube()
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			m_points[i] = Matrix3::Scale3D(99.0) * m_points[i];
+			m_points[i] = Matrix3::Scale3D(99.95) * m_points[i];
 		}
 	}
 

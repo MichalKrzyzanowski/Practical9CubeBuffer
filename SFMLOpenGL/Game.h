@@ -26,5 +26,5 @@ private:
 	sf::Clock clock;
 	sf::Time elapsed;
 
-	float rotationAngle = 0.5f;
+	float rotationAngle = 0.05f;
 };
